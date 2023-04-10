@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Button Color Changer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <div class="container my-4">
+      <button id="btn" class="btn btn-danger">Click me</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/esm/popper.min.js"
+      integrity="sha384-WJ+b8r9r9crf3qldx7VwWJ8vWR7zyyNtOyRt7Nn8bxvO9NwlI1qfItV7oW8/VTdz"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+YBj1VpGhMOhkk1LyT/joNxTcPj7xS+"
+      crossorigin="anonymous"></script>
+
+    <script>
+      const btn = $('#btn');
+      let index = 0;
+      const colors = ['btn-warning', 'btn-success', 'btn-danger'];
+
+      function changeColor() {
+        btn.removeClass('btn-warning btn-success btn-danger');
+        btn.addClass(colors[index]);
+        index = index >= colors.length - 1 ? 0 : index + 1;
+      }
+
+      btn.click(function() {
+        changeColor();
+      });
+
+      setInterval(changeColor, 10000);
+    </script>
+  </body>
+</html>
